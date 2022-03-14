@@ -35,6 +35,7 @@
               </button>
             </form>
           </div>
+          <UIAppWarning v-if="formError" text="Bitte gebe eine PLZ ein." />
         </div>
       </div>
     </section>
@@ -99,6 +100,7 @@ export default {
     return {
       featuredPlaces: [],
       searchString: '',
+      formError: false,
     };
   },
   methods: {
@@ -137,6 +139,17 @@ export default {
      *
      */
     search() {
+      // prevent wrong input, only allow 5 digit number aka zipcode
+      if (!this.searchString.match(/\b\d{5}\b/g)) {
+        this.formError = true;
+        this.searchString = '';
+        setTimeout(() => {
+          this.formError = false;
+        }, 4000);
+        return;
+      }
+
+      // push the route to results page with zipcode as search query
       this.$router.push({
         path: '/results',
         query: { search: this.searchString },
