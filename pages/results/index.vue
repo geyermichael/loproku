@@ -10,10 +10,9 @@
         Ergebnisse in einem 30km Radius um PLZ "{{ searchString }}"
       </p>
       <div v-if="isLoading" class="text-xl text-center col-span-2">
-        loading...
+        suche...
       </div>
     </div>
-
     <div class="mx-auto grid lg:grid-cols-2 gap-4 px-2">
       <div>
         <div
@@ -73,6 +72,7 @@ export default {
   data() {
     return {
       nearByPlaces: [],
+      isLoading: true,
     };
   },
   methods: {
@@ -89,6 +89,8 @@ export default {
      */
     async fetchNearByPlaces() {
       try {
+        this.isLoading = true;
+
         const { long, lat } = await this.fetchGeoDataBySearchString();
 
         // helper to calculate an approximate radius of 30km
@@ -107,6 +109,7 @@ export default {
           .lt('longitude', long + longRange)
           .range(0, 3);
 
+        this.isLoading = false;
         this.nearByPlaces = response.body;
       } catch (error) {
         console.error(error.message);
