@@ -20,7 +20,6 @@
           >
             <form @submit.prevent="search" class="flex flex-col md:flex-row">
               <input
-                v-model="searchString"
                 type="text"
                 placeholder="80331"
                 required
@@ -54,13 +53,13 @@
       </div>
       <div class="grid lg:grid-cols-3 gap-6">
         <div
-          v-for="item in items"
-          :key="item.id"
+          v-for="place in featuredPlaces"
+          :key="place.id"
           class="w-full px-4 py-3 mx-auto mb-8 bg-white rounded-md shadow-md dark:bg-gray-800"
         >
           <div class="flex items-center justify-between">
             <span class="text-sm font-light text-gray-800 dark:text-gray-400"
-              >{{ item.zipcode }} {{ item.city }}</span
+              >{{ place.zipcode }} {{ place.city }}</span
             >
             <span
               class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900"
@@ -72,23 +71,18 @@
             <h3
               class="mt-2 text-lg font-semibold text-gray-800 dark:text-white"
             >
-              {{ item.name }}
+              {{ place.name }}
             </h3>
-            <!-- <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-              eligendi similique exercitationem optio libero vitae accusamus
-              cupiditate laborum eos.
-            </p> -->
           </div>
 
           <div>
             <div class="flex flex-col mt-4 text-gray-700 dark:text-gray-200">
               <div>Anschrift:</div>
               <a
-                :href="`https://www.google.com/maps/search/?api=1&query=${item.formattedAddress}`"
+                :href="`https://www.google.com/maps/search/?api=1&query=${place.formattedAddress}`"
                 target="blank"
                 class="text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
-                >{{ item.formattedAddress }}</a
+                >{{ place.formattedAddress }}</a
               >
             </div>
           </div>
@@ -99,5 +93,33 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      featuredPlaces: [],
+    };
+  },
+  methods: {
+    /**
+     * Get Featured Places
+     *
+     * Send req to supabase and fetch the latest 12 places.
+     */
+    async fetchFeaturedPlaces() {
+      try {
+        const response = await this.$supabase
+          .from('items')
+          .select('*')
+          .range(0, 11);
+
+        this.featuredPlaces = response.body;
+      } catch (error) {
+        console.error(error.message);
+      }
+    },
+  },
+  created() {
+    this.fetchFeaturedPlaces();
+  },
+};
 </script>
