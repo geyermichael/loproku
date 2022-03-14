@@ -40,7 +40,7 @@
             to="/about"
             class="my-4 text-lg font-medium transition-colors duration-200 transform hover:text-padua-600 md:mx-4 md:my-0"
             href="#"
-            >Über</nuxt-link
+            >Warum?</nuxt-link
           >
           <nuxt-link
             to="contact"
