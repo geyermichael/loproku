@@ -1,3 +1,5 @@
+import { version } from './package.json';
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -53,4 +55,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // https://nuxtjs.org/guide/runtime-config
+  publicRuntimeConfig: {
+    appVersion: version,
+  },
 };
