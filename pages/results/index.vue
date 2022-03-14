@@ -58,7 +58,6 @@
 
 <script>
 import mapboxgl from 'mapbox-gl';
-import LastEntry from '../../components/Results/LastEntry.vue';
 export default {
   data() {
     return {
@@ -81,6 +80,15 @@ export default {
      */
     async fetchNearByPlaces() {
       try {
+        if (!this.searchString.match(/\b\d{5}\b/g)) {
+          this.error = {
+            type: '',
+            message: '🤔 Da suchst Du wohl nicht nach einer PLZ.',
+          };
+          this.isLoading = false;
+          return;
+        }
+
         // enable loading
         this.isLoading = true;
 
@@ -231,6 +239,5 @@ export default {
   mounted() {
     this.fetchNearByPlaces();
   },
-  components: { LastEntry },
 };
 </script>
