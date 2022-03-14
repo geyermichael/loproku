@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="lg:sticky top-20 py-16 bg-white">
+    <div class="top-20 py-16 bg-white">
       <h2
         class="text-xl text-center font-bold text-gray-800 dark:text-white md:text-2xl"
       >
@@ -59,15 +59,15 @@
         {{ error.message }}
       </div> -->
       </div>
-      <div
-        id="map"
-        style="height: 32rem; width: 100%; position: sticky; top: 12rem"
-      ></div>
+      <div class="sticky h-8 top-24">
+        <div id="map" style="height: 32rem; width: 100%"></div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import mapboxgl from 'mapbox-gl';
 export default {
   data() {
     return {
@@ -110,7 +110,11 @@ export default {
           .range(0, 3);
 
         this.isLoading = false;
+
         this.nearByPlaces = response.body;
+
+        // generate map
+        this.initMap({ long, lat });
       } catch (error) {
         console.error(error.message);
       }
@@ -149,6 +153,27 @@ export default {
       } catch (error) {
         console.error(error.message);
       }
+    },
+
+    initMap(mapCenterCoordinates) {
+      // TODO hide token !!!!
+      mapboxgl.accessToken =
+        'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsMG5sYWVseDA5a3ozZ21zcXIzaHA2cDMifQ.mY_AfBfGlsq1Sn3WQ54Vew';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/geyermichael/cl0pdchib00gf15qlxlmpknkk',
+        // style: 'mapbox://styles/mapbox/streets-v11',
+      });
+
+      // set map bounds
+      map.fitBounds([
+        [mapCenterCoordinates.long - 0.2, mapCenterCoordinates.lat - 0.2],
+        [mapCenterCoordinates.long + 0.2, mapCenterCoordinates.lat + 0.2],
+      ]);
+      // set search center marker
+      new mapboxgl.Marker({ color: 'teal' })
+        .setLngLat([mapCenterCoordinates.long, mapCenterCoordinates.lat])
+        .addTo(map);
     },
   },
   computed: {
