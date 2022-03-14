@@ -1,6 +1,70 @@
 <template>
   <div>
-    <pre>{{ nearByPlaces }}</pre>
+    <div class="lg:sticky top-20 py-16 bg-white">
+      <h2
+        class="text-xl text-center font-bold text-gray-800 dark:text-white md:text-2xl"
+      >
+        Deine Suchergebnisse 🔍
+      </h2>
+      <p class="text-center mb-8">
+        Ergebnisse in einem 30km Radius um PLZ "{{ searchString }}"
+      </p>
+      <div v-if="isLoading" class="text-xl text-center col-span-2">
+        loading...
+      </div>
+    </div>
+
+    <div class="mx-auto grid lg:grid-cols-2 gap-4 px-2">
+      <div>
+        <div
+          v-for="item in nearByPlaces"
+          :key="item.id"
+          class="w-full px-4 py-3 mx-auto mb-8 bg-white rounded-md shadow-md dark:bg-gray-800"
+        >
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-light text-gray-800 dark:text-gray-400"
+              >{{ item.zipcode }} {{ item.city }}</span
+            >
+            <span
+              class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900"
+              >automat</span
+            >
+          </div>
+
+          <div>
+            <h3
+              class="mt-2 text-lg font-semibold text-gray-800 dark:text-white"
+            >
+              {{ item.name }}
+            </h3>
+            <!-- <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
+              eligendi similique exercitationem optio libero vitae accusamus
+              cupiditate laborum eos.
+            </p> -->
+          </div>
+
+          <div>
+            <div class="flex flex-col mt-4 text-gray-700 dark:text-gray-200">
+              <div>Anschrift:</div>
+              <a
+                :href="`https://www.google.com/maps/search/?api=1&query=${item.formattedAddress}`"
+                target="blank"
+                class="text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
+                >{{ item.formattedAddress }}</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- <div class="text-xl text-center col-span-2">
+        {{ error.message }}
+      </div> -->
+      </div>
+      <div
+        id="map"
+        style="height: 32rem; width: 100%; position: sticky; top: 12rem"
+      ></div>
+    </div>
   </div>
 </template>
 
