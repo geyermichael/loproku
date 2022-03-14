@@ -27,7 +27,8 @@
         </address>
         <a
           :href="`https://www.google.com/maps/search/?api=1&query=${place.formattedAddress}`"
-          target="blank"
+          target="_blank"
+          rel="noopener noreferrer"
           class="cursor-pointer text-padua-800 hover:underline mt-4"
           >Adresse in Google Maps anzeigen</a
         >

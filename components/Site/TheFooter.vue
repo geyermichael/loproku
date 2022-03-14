@@ -1,27 +1,38 @@
 <template>
   <footer class="dark:bg-gray-800 pt-32 font-montserrat text-gray-600">
     <div class="container px-6 py-8 mx-auto">
-      <hr class="my-10 border-gray-200 dark:border-gray-700" />
+      <hr class="my-10 border-gray-200" />
 
       <div class="flex flex-col items-center sm:flex-row sm:justify-between">
         <div>
           <a
             href="https://github.com"
-            target="blank"
-            class="mx-2 text-sm text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mx-2 text-sm hover:text-gray-500 dark:hover:text-gray-300"
             aria-label="Reddit"
           >
             v1.0.0
           </a>
-          <span class="text-sm text-gray-400">
+          <span class="mx-2 text-sm">
             {{ new Date().getFullYear() }}
+          </span>
+          <span class="mx-2 text-sm">
+            Made with
+            <a href="" target="_blank" rel="noopener noreferrer"
+              ><IconsCoffee class="h-4 w-4 mb-1 inline"
+            /></a>
+            and
+            <a href="" target="_blank" rel="noopener noreferrer"
+              ><IconsCode class="h-4 w-4 mb-1 inline"
+            /></a>
           </span>
         </div>
 
         <div class="flex mt-3 -mx-2 sm:mt-0">
           <a
             href="#"
-            class="mx-2 text-sm text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+            class="mx-2 text-sm hover:text-gray-500 dark:hover:text-gray-300"
             aria-label="Reddit"
           >
             Team
@@ -29,7 +40,7 @@
 
           <a
             href="#"
-            class="mx-2 text-sm text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+            class="mx-2 text-sm hover:text-gray-500 dark:hover:text-gray-300"
             aria-label="Reddit"
           >
             Datenschutz
@@ -37,7 +48,7 @@
 
           <a
             href="#"
-            class="mx-2 text-sm text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+            class="mx-2 text-sm hover:text-gray-500 dark:hover:text-gray-300"
             aria-label="Reddit"
           >
             Impressum
@@ -45,7 +56,7 @@
 
           <a
             href="#"
-            class="mx-2 text-sm text-gray-400 hover:text-gray-500 dark:hover:text-gray-300"
+            class="mx-2 text-sm hover:text-gray-500 dark:hover:text-gray-300"
             aria-label="Reddit"
           >
             Cookies
