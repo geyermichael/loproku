@@ -16,51 +16,18 @@
     <div class="mx-auto grid lg:grid-cols-2 gap-4 px-2">
       <div>
         <div
-          v-for="item in nearByPlaces"
-          :key="item.id"
+          v-for="place in nearByPlaces"
+          :key="place.id"
           class="w-full px-4 py-3 mx-auto mb-8 bg-white rounded-md shadow-md dark:bg-gray-800"
         >
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-light text-gray-800 dark:text-gray-400"
-              >{{ item.zipcode }} {{ item.city }}</span
-            >
-            <span
-              class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900"
-              >automat</span
-            >
-          </div>
-
-          <div>
-            <h3
-              class="mt-2 text-lg font-semibold text-gray-800 dark:text-white"
-            >
-              {{ item.name }}
-            </h3>
-            <!-- <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-              eligendi similique exercitationem optio libero vitae accusamus
-              cupiditate laborum eos.
-            </p> -->
-          </div>
-
-          <div>
-            <div class="flex flex-col mt-4 text-gray-700 dark:text-gray-200">
-              <div>Anschrift:</div>
-              <a
-                :href="`https://www.google.com/maps/search/?api=1&query=${item.formattedAddress}`"
-                target="blank"
-                class="text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
-                >{{ item.formattedAddress }}</a
-              >
-            </div>
-          </div>
+          <ResultsPlaceCard :place="place" />
         </div>
 
         <ResultsLastEntry v-if="isLoading === false" />
 
         <!-- <div class="text-xl text-center col-span-2">
         {{ error.message }}
-      </div> -->
+        </div> -->
       </div>
       <div class="sticky h-8 top-24">
         <div id="map" style="height: 32rem; width: 100%"></div>
