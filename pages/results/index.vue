@@ -14,7 +14,10 @@
       </div>
     </div>
     <div class="mx-auto grid lg:grid-cols-2 gap-4 px-2">
-      <div>
+      <div class="lg:h-96 lg:sticky lg:top-24">
+        <div id="map" style="height: 32rem; width: 100%"></div>
+      </div>
+      <div class="mt-8 lg:mt-0">
         <div
           v-for="place in nearByPlaces"
           :key="place.id"
@@ -28,9 +31,6 @@
         <!-- <div class="text-xl text-center col-span-2">
         {{ error.message }}
         </div> -->
-      </div>
-      <div class="sticky h-8 top-24">
-        <div id="map" style="height: 32rem; width: 100%"></div>
       </div>
     </div>
   </div>
