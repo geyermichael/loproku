@@ -48,9 +48,10 @@
             👋 Unsere neusten Einträge.
           </h2>
 
-          <p class="mt-6 text-gray-500 dark:text-gray-300">
+          <p class="mt-2 mb-4 lg:mb-8 text-gray-500 dark:text-gray-300">
             Ganz frisch eingetroffen. Vielleicht auch etwas in deiner Nähe.
           </p>
+          <UIAppLoadingSpinner v-if="isLoading" />
         </div>
       </div>
       <div class="grid lg:grid-cols-3 gap-6">
@@ -59,35 +60,46 @@
           :key="place.id"
           class="w-full px-4 py-3 mx-auto mb-8 bg-white rounded-md shadow-md dark:bg-gray-800"
         >
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-light text-gray-800 dark:text-gray-400"
-              >{{ place.zipcode }} {{ place.city }}</span
-            >
-            <span
-              class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900"
-              >automat</span
-            >
-          </div>
+          <ResultsPlaceCard :place="place" />
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="text-center mt-32">
+        <p
+          class="text-2xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
+        >
+          Du möchtest dieses Projekt gerne unterstützen?
+        </p>
 
-          <div>
-            <h3
-              class="mt-2 text-lg font-semibold text-gray-800 dark:text-white"
-            >
-              {{ place.name }}
-            </h3>
-          </div>
+        <p class="max-w-lg mx-auto mt-2 text-gray-500 dark:text-gray-400">
+          Schreib uns, falls du einen neuen Eintrag hinzufügen möchtest oder
+          Verbesserungvorschläge hast.
+        </p>
 
-          <div>
-            <div class="flex flex-col mt-4 text-gray-700 dark:text-gray-200">
-              <div>Anschrift:</div>
-              <a
-                :href="`https://www.google.com/maps/search/?api=1&query=${place.formattedAddress}`"
-                target="blank"
-                class="text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
-                >{{ place.formattedAddress }}</a
-              >
-            </div>
-          </div>
+        <div
+          class="flex flex-col mt-4 sm:flex-row sm:items-center sm:justify-center"
+        >
+          <button
+            class="flex items-center justify-center order-1 w-full px-2 py-2 mt-3 text-sm tracking-wide text-gray-600 capitalize transition-colors duration-200 transform border rounded-md sm:mx-2 dark:border-gray-400 dark:text-gray-300 sm:mt-0 sm:w-auto hover:bg-gray-50 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 mx-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+
+            <span class="mx-1">Kontakt</span>
+          </button>
         </div>
       </div>
     </section>
@@ -101,6 +113,7 @@ export default {
       featuredPlaces: [],
       searchString: '',
       formError: false,
+      isLoading: false,
     };
   },
   methods: {
@@ -113,11 +126,15 @@ export default {
      */
     async fetchFeaturedPlaces() {
       try {
+        this.isLoading = true;
         const response = await this.$supabase
           .from('items')
           .select('*')
           .range(0, 11);
 
+        // TODO add supabase error handling
+
+        this.isLoading = false;
         this.featuredPlaces = response.body;
       } catch (error) {
         console.error(error.message);
