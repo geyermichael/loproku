@@ -6,8 +6,8 @@
           <h1
             class="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl"
           >
-            Finde Lebenmittelautomaten, Märkte und Landwirte die ihre Waren
-            direkt verkaufen.
+            Finde Warenautomaten, Märkte und Landwirte die ihre Waren direkt
+            verkaufen.
           </h1>
 
           <p class="mt-6 text-gray-500 dark:text-gray-300">
