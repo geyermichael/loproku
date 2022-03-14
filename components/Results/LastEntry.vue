@@ -27,7 +27,7 @@
           />
         </svg>
 
-        <span class="mx-1">Kontakt</span>
+        <nuxt-link to="/contact" class="mx-1">Kontakt</nuxt-link>
       </button>
     </div>
   </div>
