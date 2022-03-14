@@ -55,6 +55,9 @@
             </div>
           </div>
         </div>
+
+        <ResultsLastEntry v-if="isLoading === false" />
+
         <!-- <div class="text-xl text-center col-span-2">
         {{ error.message }}
       </div> -->
@@ -68,6 +71,7 @@
 
 <script>
 import mapboxgl from 'mapbox-gl';
+import LastEntry from '../../components/Results/LastEntry.vue';
 export default {
   data() {
     return {
@@ -90,15 +94,12 @@ export default {
     async fetchNearByPlaces() {
       try {
         this.isLoading = true;
-
         const { long, lat } = await this.fetchGeoDataBySearchString();
-
         // helper to calculate an approximate radius of 30km
         // https://stackoverflow.com/a/31268042
         const latRange = 30 / 110.54;
-        const degsToRads = (deg) => (deg * Math.PI) / 180.0;
+        const degsToRads = (deg) => (deg * Math.PI) / 180;
         const longRange = 30 / (111.32 * Math.cos(degsToRads(lat)));
-
         // fetch places that fit in the calculates range
         const response = await this.$supabase
           .from('items')
@@ -108,18 +109,14 @@ export default {
           .gt('longitude', long - longRange)
           .lt('longitude', long + longRange)
           .range(0, 3);
-
         this.isLoading = false;
-
         this.nearByPlaces = response.body;
-
         // generate map
         this.initMap({ long, lat });
       } catch (error) {
         console.error(error.message);
       }
     },
-
     /**
      * Fetch Geo Data
      *
@@ -133,28 +130,22 @@ export default {
       try {
         const mapboxGeocoderApiKey =
           'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsMG5sYWVseDA5a3ozZ21zcXIzaHA2cDMifQ.mY_AfBfGlsq1Sn3WQ54Vew';
-
         let response = await fetch(
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.searchString}.json?country=de&types=postcode&access_token=${mapboxGeocoderApiKey}`
         );
         response = await response.json();
-
         // simple error handling if response found nothing
         if (response.features.length === 0) {
           throw new Error('zipcode not found');
         }
-
         const coordinates = response.features[0].geometry.coordinates;
-
         const long = coordinates[0];
         const lat = coordinates[1];
-
         return { long, lat };
       } catch (error) {
         console.error(error.message);
       }
     },
-
     initMap(mapCenterCoordinates) {
       // TODO hide token !!!!
       mapboxgl.accessToken =
@@ -164,7 +155,6 @@ export default {
         style: 'mapbox://styles/geyermichael/cl0pdchib00gf15qlxlmpknkk',
         // style: 'mapbox://styles/mapbox/streets-v11',
       });
-
       // set map bounds
       map.fitBounds([
         [mapCenterCoordinates.long - 0.2, mapCenterCoordinates.lat - 0.2],
@@ -184,5 +174,6 @@ export default {
   mounted() {
     this.fetchNearByPlaces();
   },
+  components: { LastEntry },
 };
 </script>
