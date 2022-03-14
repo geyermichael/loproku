@@ -37,15 +37,17 @@
         class="items-center md:flex"
       >
         <div class="flex flex-col mt-4 md:flex-row md:mx-6">
-          <a
+          <nuxt-link
+            to="/about"
             class="my-4 text-lg font-medium text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
             href="#"
-            >Über</a
+            >Über</nuxt-link
           >
-          <a
+          <nuxt-link
+            to="contact"
             class="my-4 text-lg font-medium text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
             href="#"
-            >Kontakt</a
+            >Kontakt</nuxt-link
           >
         </div>
       </div>
