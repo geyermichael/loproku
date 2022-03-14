@@ -9,9 +9,7 @@
       <p class="text-center mb-8">
         Ergebnisse in einem 30km Radius um PLZ "{{ searchString }}"
       </p>
-      <div v-if="isLoading" class="text-xl text-center col-span-2">
-        suche...
-      </div>
+      <UIAppLoadingSpinner v-if="isLoading" />
       <div v-if="error" class="text-center col-span-2">
         <p>{{ error.message }}</p>
         <button
