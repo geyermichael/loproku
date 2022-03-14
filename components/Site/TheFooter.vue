@@ -8,15 +8,9 @@
           <span class="mx-2 text-sm">
             © LoProKu {{ new Date().getFullYear() }}
           </span>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mx-2 text-sm hover:text-gray-500"
-            aria-label="Reddit"
-          >
-            {{ version }}
-          </a>
+          <span class="mx-2 text-sm hover:text-gray-500">
+            v{{ $config.appVersion }}
+          </span>
           <span class="mx-2 text-sm">
             Made with
             <a
@@ -76,12 +70,5 @@
 </template>
 
 <script>
-import { version } from '../../package.json';
-export default {
-  data() {
-    return {
-      version,
-    };
-  },
-};
+export default {};
 </script>
