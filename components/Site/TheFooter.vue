@@ -15,7 +15,7 @@
             class="mx-2 text-sm hover:text-gray-500"
             aria-label="Reddit"
           >
-            v1.0.0
+            {{ version }}
           </a>
           <span class="mx-2 text-sm">
             Made with
@@ -74,3 +74,14 @@
     </div>
   </footer>
 </template>
+
+<script>
+import { version } from '../../package.json';
+export default {
+  data() {
+    return {
+      version,
+    };
+  },
+};
+</script>

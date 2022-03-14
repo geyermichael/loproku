@@ -1,6 +1,6 @@
 {
-  "name": "local-product-finder",
-  "version": "1.0.0",
+  "name": "loproku",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "nuxt",
