@@ -103,7 +103,9 @@ export default {
     /**
      * Get Featured Places
      *
-     * Send req to supabase and fetch the latest 12 places.
+     * @description
+     * Fetch 12 places from supabase.
+     *
      */
     async fetchFeaturedPlaces() {
       try {
