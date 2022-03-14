@@ -84,6 +84,7 @@ export default {
         console.error(error.message);
       }
     },
+
     /**
      * Fetch Geo Data
      *
@@ -113,11 +114,17 @@ export default {
         console.error(error.message);
       }
     },
+
+    /**
+     * Init The Map
+     *
+     * @param {Object} mapCenterCoordinates
+     */
     initMap(mapCenterCoordinates) {
       // TODO hide token !!!!
       mapboxgl.accessToken =
         'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsMG5sYWVseDA5a3ozZ21zcXIzaHA2cDMifQ.mY_AfBfGlsq1Sn3WQ54Vew';
-      var map = new mapboxgl.Map({
+      const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/geyermichael/cl0pdchib00gf15qlxlmpknkk',
         // style: 'mapbox://styles/mapbox/streets-v11',
@@ -130,6 +137,32 @@ export default {
       // set search center marker
       new mapboxgl.Marker({ color: 'teal' })
         .setLngLat([mapCenterCoordinates.long, mapCenterCoordinates.lat])
+        .addTo(map);
+
+      this.nearByPlaces.forEach((place) => {
+        this.createMarkerForPlace(map, place);
+      });
+    },
+
+    /**
+     * Create Marker For Place
+     *
+     * @param {Object} map
+     * @param {Object} place
+     */
+    createMarkerForPlace(map, place) {
+      // create the popup
+      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+        `
+          ${place.zipcode} ${place.city}<br>
+          <div style="font-weight: bold;">${place.name}</div>
+          `
+      );
+
+      // create the marker
+      new mapboxgl.Marker()
+        .setLngLat([+place.longitude, +place.latitude])
+        .setPopup(popup)
         .addTo(map);
     },
   },
