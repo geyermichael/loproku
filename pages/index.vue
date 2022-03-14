@@ -20,6 +20,7 @@
           >
             <form @submit.prevent="search" class="flex flex-col md:flex-row">
               <input
+                v-model="searchString"
                 type="text"
                 placeholder="80331"
                 required
@@ -97,11 +98,12 @@ export default {
   data() {
     return {
       featuredPlaces: [],
+      searchString: '',
     };
   },
   methods: {
     /**
-     * Get Featured Places
+     * Fetch Featured Places
      *
      * @description
      * Fetch 12 places from supabase.
@@ -118,6 +120,27 @@ export default {
       } catch (error) {
         console.error(error.message);
       }
+    },
+
+    /**
+     * Search
+     *
+     * @description
+     * Push to route ```/results``` with a search query.
+     * The query content is the input value saved as ```searchString```
+     *
+     * The searchString is used by the results page to calculate the map bounds
+     * and for fetching the proper palces from supabase.
+     *
+     * @example
+     * ```/results?search=foo```
+     *
+     */
+    search() {
+      this.$router.push({
+        path: '/results',
+        query: { search: this.searchString },
+      });
     },
   },
   created() {
