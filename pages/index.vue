@@ -4,19 +4,21 @@
       <div class="px-6 py-32 mx-auto text-center">
         <div class="max-w-2xl mx-auto">
           <h1
-            class="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl"
+            class="text-3xl font-bold text-padua-900 dark:text-white md:text-4xl"
           >
             Finde Warenautomaten, Märkte und Landwirte die ihre Waren direkt
             verkaufen.
           </h1>
 
-          <p class="mt-6 text-gray-500 dark:text-gray-300">
-            Die PLZ deines Wohnortes eintragen und die Suche starten. Ganz
-            einfach 😉
+          <p
+            class="text-lg font-montserrat mt-6 font-light text-padua-900 md:text-xl"
+          >
+            Die PLZ deines Wohnortes eintragen und die Suche starten. <br />
+            Ganz einfach 😉
           </p>
 
           <div
-            class="w-full max-w-sm mx-auto mt-6 bg-transparent border rounded-md dark:border-gray-700 focus-within:border-blue-400 focus-within:ring focus-within:ring-blue-300 dark:focus-within:border-blue-300 focus-within:ring-opacity-40"
+            class="w-full font-montserrat bg-white max-w-sm mx-auto mt-6 bg-transparent border-2 rounded-md focus-within:border-padua-900 focus-within:ring focus-within:ring-padua-800 focus-within:ring-opacity-40"
           >
             <form @submit.prevent="search" class="flex flex-col md:flex-row">
               <input
@@ -24,12 +26,12 @@
                 type="text"
                 placeholder="80331"
                 required
-                class="flex-1 h-10 px-4 py-2 m-1 text-gray-700 placeholder-gray-400 bg-transparent border-none appearance-none dark:text-gray-200 focus:outline-none focus:placeholder-transparent focus:ring-0"
+                class="flex-1 h-10 px-4 py-2 m-1 text-gray-900 placeholder-gray-400 bg-transparent border-none appearance-none focus:outline-none focus:placeholder-transparent focus:ring-0"
               />
 
               <button
                 type="submit"
-                class="h-10 px-4 py-2 m-1 text-white transition-colors duration-200 transform bg-blue-500 rounded-md hover:bg-blue-400 focus:outline-none focus:bg-blue-400"
+                class="h-10 px-6 py-2 m-1 text-white transition-colors duration-300 transform bg-padua-900 rounded-md hover:bg-padua-800 focus:outline-none focus:bg-padua-800"
               >
                 Suche
               </button>
@@ -42,37 +44,29 @@
     <section>
       <div class="px-6 py-16 mx-auto text-center">
         <div class="max-w-lg mx-auto">
-          <h2
-            class="text-xl font-bold text-gray-800 dark:text-white md:text-2xl"
-          >
+          <h2 class="text-xl font-bold md:text-2xl">
             👋 Unsere neusten Einträge.
           </h2>
 
-          <p class="mt-2 mb-4 lg:mb-8 text-gray-500 dark:text-gray-300">
+          <p class="font-montserrat mt-2 mb-4 lg:mb-8">
             Ganz frisch eingetroffen. Vielleicht auch etwas in deiner Nähe.
           </p>
           <UIAppLoadingSpinner v-if="isLoading" />
         </div>
       </div>
       <div class="grid lg:grid-cols-3 gap-6">
-        <div
-          v-for="place in featuredPlaces"
-          :key="place.id"
-          class="w-full px-4 py-3 mx-auto mb-8 bg-white rounded-md shadow-md dark:bg-gray-800"
-        >
+        <div v-for="place in featuredPlaces" :key="place.id">
           <ResultsPlaceCard :place="place" />
         </div>
       </div>
     </section>
     <section>
       <div class="text-center mt-32">
-        <p
-          class="text-2xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
-        >
+        <p class="text-2xl font-bold">
           Du möchtest dieses Projekt gerne unterstützen?
         </p>
 
-        <p class="max-w-lg mx-auto mt-2 text-gray-500 dark:text-gray-400">
+        <p class="max-w-md font-montserrat mx-auto mt-2">
           Schreib uns, falls du einen neuen Eintrag hinzufügen möchtest oder
           Verbesserungvorschläge hast.
         </p>

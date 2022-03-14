@@ -1,5 +1,5 @@
 <template>
-  <nav class="bg-white shadow dark:bg-gray-800 sticky top-0 z-50">
+  <nav class="bg-padua-900 text-padua-50 shadow sticky top-0 z-50">
     <div
       class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center"
     >
@@ -7,8 +7,7 @@
         <div>
           <nuxt-link
             to="/"
-            class="text-2xl font-bold text-gray-800 transition-colors duration-200 transform dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300"
-            href="#"
+            class="text-2xl font-bold transition-colors duration-300 transform lg:text-3xl hover:text-padua-600"
             >LoProKu</nuxt-link
           >
         </div>
@@ -18,7 +17,7 @@
           <button
             @click="toggleMobileMenu"
             type="button"
-            class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
+            class="hover:text-padua-600 focus:text-padua-600"
             aria-label="toggle menu"
           >
             <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
@@ -36,16 +35,16 @@
         :class="mobileMenuIsOpen ? 'block' : 'hidden'"
         class="items-center md:flex"
       >
-        <div class="flex flex-col mt-4 md:flex-row md:mx-6">
+        <div class="flex mt-6 md:mt-0 flex-col md:flex-row md:mx-6">
           <nuxt-link
             to="/about"
-            class="my-4 text-lg font-medium text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
+            class="my-4 text-lg font-medium transition-colors duration-200 transform hover:text-padua-600 md:mx-4 md:my-0"
             href="#"
             >Über</nuxt-link
           >
           <nuxt-link
             to="contact"
-            class="my-4 text-lg font-medium text-gray-700 transition-colors duration-200 transform dark:text-gray-200 hover:text-blue-500 dark:hover:text-blue-400 md:mx-4 md:my-0"
+            class="my-4 text-lg font-medium transition-colors duration-200 transform hover:text-padua-600 md:mx-4 md:my-0"
             href="#"
             >Kontakt</nuxt-link
           >

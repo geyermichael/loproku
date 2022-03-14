@@ -1,34 +1,35 @@
 <template>
-  <div>
+  <div
+    class="w-full font-montserrat px-4 py-6 mx-auto mb-8 bg-white rounded-md shadow-md"
+  >
     <div class="flex items-center justify-between">
-      <span class="text-sm font-light text-gray-800 dark:text-gray-400"
+      <span class="text-sm font-light text-padua-900 dark:text-padua-400"
         >{{ place.zipcode }} {{ place.city }}</span
       >
       <span
-        class="px-3 py-1 text-xs text-blue-800 uppercase bg-blue-200 rounded-full dark:bg-blue-300 dark:text-blue-900"
+        class="px-3 py-1 text-xs text-padua-900 uppercase bg-padua-200 rounded-full"
         >automat</span
       >
     </div>
 
-    <div>
-      <h3 class="mt-2 text-lg font-semibold text-gray-800 dark:text-white">
-        {{ place.name }}
-      </h3>
-      <!-- <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio
-              eligendi similique exercitationem optio libero vitae accusamus
-              cupiditate laborum eos.
-            </p> -->
-    </div>
+    <h3 class="text-xl font-bold text-padua-900">
+      {{ place.name }}
+    </h3>
 
     <div>
-      <div class="flex flex-col mt-4 text-gray-700 dark:text-gray-200">
-        <div>Anschrift:</div>
+      <div class="flex flex-col mt-8 text-padua-900">
+        <div>Adresse:</div>
+        <address class="font-playfair not-italic">
+          {{ place.zipcode }} {{ place.city }} <br />
+          {{ place.formattedAddress.split(',')[0] }} <br />
+          {{ place.state }} <br />
+          {{ place.country }} <br />
+        </address>
         <a
           :href="`https://www.google.com/maps/search/?api=1&query=${place.formattedAddress}`"
           target="blank"
-          class="text-blue-600 cursor-pointer dark:text-blue-400 hover:underline"
-          >{{ place.formattedAddress }}</a
+          class="cursor-pointer text-padua-800 hover:underline mt-4"
+          >Adresse in Google Maps anzeigen</a
         >
       </div>
     </div>

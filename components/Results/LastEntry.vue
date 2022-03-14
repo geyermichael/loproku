@@ -1,12 +1,8 @@
 <template>
   <div class="text-center mt-32">
-    <p
-      class="text-2xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300"
-    >
-      Nichts in deiner Nähe gefunden?
-    </p>
+    <p class="text-2xl font-bold">Nichts in deiner Nähe gefunden?</p>
 
-    <p class="max-w-lg mx-auto mt-2 text-gray-500 dark:text-gray-400">
+    <p class="max-w-lg font-montserrat mx-auto mt-2">
       Schreib uns, falls du einen neuen Eintrag hinzufügen möchtest.
     </p>
 

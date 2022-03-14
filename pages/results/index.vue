@@ -6,7 +6,7 @@
       >
         Deine Suchergebnisse 🔍
       </h2>
-      <p class="text-center mb-8">
+      <p class="text-center mb-8 font-montserrat">
         Ergebnisse in einem 30km Radius um PLZ "{{ searchString }}"
       </p>
       <UIAppLoadingSpinner v-if="isLoading" />
@@ -40,11 +40,7 @@
         <div id="map" style="height: 32rem; width: 100%"></div>
       </div>
       <div class="mt-8 lg:mt-0">
-        <div
-          v-for="place in nearByPlaces"
-          :key="place.id"
-          class="w-full px-4 py-3 mx-auto mb-8 bg-white rounded-md shadow-md dark:bg-gray-800"
-        >
+        <div v-for="place in nearByPlaces" :key="place.id">
           <ResultsPlaceCard :place="place" />
         </div>
 
@@ -189,8 +185,7 @@ export default {
         'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsMG5sYWVseDA5a3ozZ21zcXIzaHA2cDMifQ.mY_AfBfGlsq1Sn3WQ54Vew';
       const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/geyermichael/cl0pdchib00gf15qlxlmpknkk',
-        // style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/streets-v11',
       });
       // set map bounds
       map.fitBounds([
@@ -198,7 +193,7 @@ export default {
         [mapCenterCoordinates.long + 0.2, mapCenterCoordinates.lat + 0.2],
       ]);
       // set search center marker
-      new mapboxgl.Marker({ color: 'teal' })
+      new mapboxgl.Marker({ color: '#0E352D' })
         .setLngLat([mapCenterCoordinates.long, mapCenterCoordinates.lat])
         .addTo(map);
 
@@ -223,7 +218,7 @@ export default {
       );
 
       // create the marker
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ color: '#6ED994' })
         .setLngLat([+place.longitude, +place.latitude])
         .setPopup(popup)
         .addTo(map);
