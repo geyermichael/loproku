@@ -6,7 +6,8 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "core-js": "^3.15.1",
@@ -16,6 +17,7 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^4.2.0",
+    "cypress": "^9.5.2",
     "postcss": "^8.3.5"
   }
 }
