@@ -16,12 +16,6 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^4.2.0",
-    "git-scripts": "^0.4.3",
     "postcss": "^8.3.5"
-  },
-  "git": {
-    "scripts": {
-      "pre-push": "surge --project ./dist --domain loproku.surge.sh"
-    }
   }
 }
