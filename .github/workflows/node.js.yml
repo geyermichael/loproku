@@ -32,7 +32,7 @@ jobs:
       run: npm run generate
       
     - name: Show File Structure
-      run: pwd && ls -la && cd dist && cd ls -la
+      run: pwd && ls -la && cd dist && ls -la
       
     - name: FTP Deploy to WP Engine (Staging)
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
