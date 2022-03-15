@@ -7,13 +7,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
+    
+    strategy:
+      matrix:
+        node: [16]
+        
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: 2   
+        fetch-depth: 2 
+        
+    - name: Setup node env
+      uses: actions/setup-node@v3.0.0
+      with:
+        node-version: ${{ matrix.node }}
         
     - name: Install NPM packages
       run: npm install
