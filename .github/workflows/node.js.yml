@@ -30,7 +30,9 @@ jobs:
     
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
+    needs: Nuxt-Generate 
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v2.1.0
         with:
