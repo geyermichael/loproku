@@ -8,8 +8,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  Nuxt-Generate:
+    name: Nuxt-Generate
     runs-on: ubuntu-latest
 
     strategy:
@@ -27,3 +27,20 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm run generate
+    
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.1.0
+        with:
+          fetch-depth: 2
+
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with: # use github secrets for the params SERVER, USERNAME and PASSWORD
+          ftp-server: ${{ secrets.SERVER }} # for Mittwald using sftp://pXXXXXX.mittwaldserver.info:22
+          ftp-username: ${{ secrets.USERNAME }} # create custom sftp account
+          ftp-password: ${{ secrets.PASSWORD }} # set special password for custom sftp account
+          local-dir: ./dist # set local directory for deployment
+          git-ftp-args: --insecure # if your certificate is setup correctly this can be removed (see known-hosts argument)
