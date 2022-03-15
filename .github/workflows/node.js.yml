@@ -30,4 +30,5 @@ jobs:
         ftp-server: ${{ secrets.SERVER }} # for Mittwald using sftp://pXXXXXX.mittwaldserver.info:22
         ftp-username: ${{ secrets.USERNAME }} # create custom sftp account
         ftp-password: ${{ secrets.PASSWORD }} # set special password for custom sftp account
-        local-dir: ./dist # set local directory for deployment
+        local-dir: ./dist # set directory for deployment
+        git-ftp-args: --insecure # if your certificate is setup correctly this can be removed (see known-hosts argument)
