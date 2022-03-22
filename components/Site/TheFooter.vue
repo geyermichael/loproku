@@ -37,14 +37,6 @@
             class="mx-2 text-sm hover:text-gray-500"
             aria-label="Reddit"
           >
-            Team
-          </a>
-
-          <a
-            href="#"
-            class="mx-2 text-sm hover:text-gray-500"
-            aria-label="Reddit"
-          >
             Datenschutz
           </a>
 
