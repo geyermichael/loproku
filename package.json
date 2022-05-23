@@ -16,7 +16,7 @@
     "nuxt-supabase": "^2.3.1"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^4.2.0",
+    "@nuxtjs/tailwindcss": "^5.1.2",
     "cypress": "^9.5.2",
     "postcss": "^8.3.5"
   }
