@@ -46,9 +46,9 @@ export default {
     [
       'nuxt-supabase',
       {
-        supabaseUrl: 'https://exvagujjflwfbrlrlhpa.supabase.co',
+        supabaseUrl: 'https://tcyatdoezydonfbffnlv.supabase.co',
         supabaseKey:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4dmFndWpqZmx3ZmJybHJsaHBhIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NDcwMTU2NzIsImV4cCI6MTk2MjU5MTY3Mn0.dFpTy-iplQeRzvatiRAX1vSlLCsuikdymcprKs0X7Q4',
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRjeWF0ZG9lenlkb25mYmZmbmx2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjQxMjkzMTEsImV4cCI6MTk3OTcwNTMxMX0.hMCLLrIozPBi2F6lVefZIVKeyhKo-k8hidpBygRvOtk',
       },
     ],
   ],
