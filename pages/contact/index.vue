@@ -12,6 +12,13 @@
           <li><a class="hover:underline" href="https://www.mapbox.com/">mapbox</a></li>
         </ul>
       </div>
+      <div class="my-4">
+        <h2 class="text-xl">Kontakt</h2>
+        <ul class="inline-flex gap-4">
+          <li><a class="hover:underline" href="https://github.com/geyermichael">GitHub</a></li>
+          <li><a class="hover:underline" href="https://www.linkedin.com/in/geyermichael92/">LinkedIn</a></li>
+        </ul>
+      </div>
     </section>
   </div>
 </template>
