@@ -37,12 +37,6 @@
       >
         <div class="flex mt-6 md:mt-0 flex-col md:flex-row md:mx-6">
           <nuxt-link
-            to="/about"
-            class="my-4 text-lg font-medium transition-colors duration-200 transform hover:text-padua-600 md:mx-4 md:my-0"
-            href="#"
-            >Warum?</nuxt-link
-          >
-          <nuxt-link
             to="contact"
             class="my-4 text-lg font-medium transition-colors duration-200 transform hover:text-padua-600 md:mx-4 md:my-0"
             href="#"
