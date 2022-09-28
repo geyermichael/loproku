@@ -8,53 +8,27 @@
           <span class="mx-2 text-sm">
             © LoProKu {{ new Date().getFullYear() }}
           </span>
-          <span class="mx-2 text-sm hover:text-gray-500">
-            v{{ $config.appVersion }}
-          </span>
+
+        </div>
+
+        <div class="flex mt-3 -mx-2 sm:mt-0">
           <span class="mx-2 text-sm">
             Made with
-            <a
-              class="hover:text-gray-500"
-              href=""
-              target="_blank"
-              rel="noopener noreferrer"
-              ><IconsCoffee class="h-4 w-4 mb-1 inline"
-            /></a>
+            <IconsCoffee class="h-4 w-4 mb-1 inline"/>
             and
             <a
               class="hover:text-gray-500"
-              href="https://qbitone.de"
+              href="https://github.com/geyermichael"
               target="_blank"
               rel="noopener noreferrer"
               ><IconsCode class="h-4 w-4 mb-1 inline"
             /></a>
           </span>
-        </div>
-
-        <div class="flex mt-3 -mx-2 sm:mt-0">
-          <a
-            href="#"
-            class="mx-2 text-sm hover:text-gray-500"
-            aria-label="Reddit"
-          >
-            Datenschutz
-          </a>
-
-          <a
-            href="#"
-            class="mx-2 text-sm hover:text-gray-500"
-            aria-label="Reddit"
-          >
-            Impressum
-          </a>
-
-          <a
-            href="#"
-            class="mx-2 text-sm hover:text-gray-500"
-            aria-label="Reddit"
-          >
-            Cookies
-          </a>
+          <span class="mx-2 text-sm hover:text-gray-500">
+            <a href="https://github.com/geyermichael/loproku">
+              v{{ $config.appVersion }}
+            </a>
+          </span>
         </div>
       </div>
     </div>
