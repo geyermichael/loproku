@@ -10,6 +10,7 @@
           <li><a class="hover:underline" href="https://supabase.com/">Supabase</a></li>
           <li><a class="hover:underline" href="https://nuxtjs.org/">Nuxt</a></li>
           <li><a class="hover:underline" href="https://www.mapbox.com/">mapbox</a></li>
+          <li><a class="hover:underline" href="https://tailwindcss.com/">Tailwind</a></li>
         </ul>
       </div>
       <div class="my-4">
