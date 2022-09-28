@@ -6,7 +6,7 @@
           <h1
             class="text-3xl font-bold text-padua-900 dark:text-white md:text-4xl"
           >
-            Finde Warenautomaten, Märkte und Landwirte die ihre Waren direkt
+            Finde Warenautomaten, Märkte und Landwirte, die ihre Waren direkt
             verkaufen.
           </h1>
 
