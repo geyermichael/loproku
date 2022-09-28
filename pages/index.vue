@@ -69,7 +69,7 @@
 
         <p class="max-w-md font-montserrat mx-auto mt-2">
           Schreib uns, falls du einen neuen Eintrag hinzufügen möchtest oder
-          Verbesserungvorschläge hast.
+          Verbesserungsvorschläge hast.
         </p>
 
         <div
