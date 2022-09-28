@@ -20,8 +20,9 @@
           <div
             class="w-full font-montserrat bg-white max-w-sm mx-auto mt-6 bg-transparent border-2 rounded-md focus-within:border-padua-900 focus-within:ring focus-within:ring-padua-800 focus-within:ring-opacity-40"
           >
-            <form @submit.prevent="search" class="flex flex-col md:flex-row">
+            <form id="search-form" @submit.prevent="search" class="flex flex-col md:flex-row">
               <input
+                id="zipcode"
                 v-model="searchString"
                 type="text"
                 placeholder="80331"
