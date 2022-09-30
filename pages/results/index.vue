@@ -180,12 +180,11 @@ export default {
      * @param {Object} mapCenterCoordinates
      */
     initMap(mapCenterCoordinates) {
-      // TODO hide token !!!!
       mapboxgl.accessToken =
-        'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsMG5sYWVseDA5a3ozZ21zcXIzaHA2cDMifQ.mY_AfBfGlsq1Sn3WQ54Vew';
+        'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsOG92cW45bTE2NXUzb3FqbXJkYmUxeWwifQ.UqrrlNUji9wfzIlMCqYnQw';
       const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/geyermichael/cl8ovxfi7001g17pvq43003f2',
       });
       // set map bounds
       map.fitBounds([
