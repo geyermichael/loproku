@@ -181,10 +181,10 @@ export default {
      */
     initMap(mapCenterCoordinates) {
       mapboxgl.accessToken =
-        'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsOG92cW45bTE2NXUzb3FqbXJkYmUxeWwifQ.UqrrlNUji9wfzIlMCqYnQw';
+        'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsOG94NHh6aTB3Y2kzdmxoZXhzZzhscGEifQ.biPeamvRedDF9I6vT3MLkQ';
       const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/geyermichael/cl8ovxfi7001g17pvq43003f2',
+        style: 'mapbox://styles/mapbox/streets-v11',
       });
       // set map bounds
       map.fitBounds([
