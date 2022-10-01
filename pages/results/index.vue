@@ -146,10 +146,8 @@ export default {
      */
     async fetchGeoDataBySearchString() {
       try {
-        const mapboxGeocoderApiKey =
-          'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsMG5sYWVseDA5a3ozZ21zcXIzaHA2cDMifQ.mY_AfBfGlsq1Sn3WQ54Vew';
         let response = await fetch(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.searchString}.json?country=de&types=postcode&access_token=${mapboxGeocoderApiKey}`
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${this.searchString}.json?country=de&types=postcode&access_token=${this.$config.mapboxToken}`
         );
 
         // fetching error handling
@@ -180,8 +178,7 @@ export default {
      * @param {Object} mapCenterCoordinates
      */
     initMap(mapCenterCoordinates) {
-      mapboxgl.accessToken =
-        'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsOG94NHh6aTB3Y2kzdmxoZXhzZzhscGEifQ.biPeamvRedDF9I6vT3MLkQ';
+      mapboxgl.accessToken = this.$config.mapboxToken;
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',

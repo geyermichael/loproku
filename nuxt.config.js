@@ -59,5 +59,6 @@ export default {
   // https://nuxtjs.org/guide/runtime-config
   publicRuntimeConfig: {
     appVersion: version,
+    mapboxToken: 'pk.eyJ1IjoiZ2V5ZXJtaWNoYWVsIiwiYSI6ImNsOG94NHh6aTB3Y2kzdmxoZXhzZzhscGEifQ.biPeamvRedDF9I6vT3MLkQ'
   },
 };
